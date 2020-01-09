@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
+  validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_blank: true
+  validates :frequency_book, length: { maximum: 50 }, allow_blank: true
   has_secure_password
 
   has_many :microposts
