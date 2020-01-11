@@ -1,23 +1,42 @@
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
-    <%= form_with(model: @user, local: true) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-      <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, id: :user_name, class: 'form-control' %>
-      <%= f.label :email, 'メールアドレス' %>
-      <%= f.email_field :email, class: 'form-control' %>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-      <%= f.label :age, '年齢' %>
-      <%= f.text_field :age, class: 'form-control' %>
-      <%= f.label :frequency_book, '読書頻度' %><br>
-      <%= f.select :frequency_book, [["ほとんど読まない", "ほとんど読まない"],["月に数回", "月に数回"], ["週1,2回程度", "週1,2回程度"],["週3~5回程度", "週3~5回程度"],  ["ほぼ毎日", "ほぼ毎日"] ],  :prompt => "選択してください", :include_blank => '未選択', class:"form-group" %><br>
-      <br>
-       <%= f.submit '編集完了', class: 'btn btn-primary btn-block' %>
-      </div>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <%= stylesheet_link_tag "user/show", :media => "all" %>
+    <title>プロフィール編集</title>
+  </head>
+  <body>
+  <div class="container-fluid">    
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <%= form_with(model: @user, local: true) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, id: :user_name, class: 'form-control' %>
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, class: 'form-control' %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+          <%= f.label :age, '年齢' %>
+          <%= f.text_field :age, class: 'form-control' %>
+          <%= f.label :frequency_book, '読書頻度' %><br>
+          <%= f.select :frequency_book, [["ほとんど読まない", "ほとんど読まない"],["月に数回", "月に数回"], ["週1,2回程度", "週1,2回程度"],["週3~5回程度", "週3~5回程度"],  ["ほぼ毎日", "ほぼ毎日"] ],  :prompt => "選択してください", :include_blank => '未選択', class:"form-group" %><br>
+          <%= f.label :record_of_reading, '読書歴' %><br>
+    <%= f.select :record_of_reading, [["週1,2回程度", "週1,2回程度"],["ほぼ毎日", "ほぼ毎日"] ],  :prompt =>"選択してください", :include_blank =>'未選択', :multiple => true, class:"form-group" %><br>
   </div>
-<% end %>
-</div>  
+          <br>
+         <%= f.submit '編集完了', class: 'btn btn-primary btn-block' %>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <% end %>  
+</html>  
