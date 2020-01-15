@@ -30,7 +30,9 @@
           <%= f.label :frequency_book, '読書頻度' %><br>
           <%= f.select :frequency_book, [["ほとんど読まない", "ほとんど読まない"],["月に数回", "月に数回"], ["週1,2回程度", "週1,2回程度"],["週3~5回程度", "週3~5回程度"],  ["ほぼ毎日", "ほぼ毎日"] ],  :prompt => "選択してください", :include_blank => '未選択', class:"form-group" %><br>
           <%= f.label :record_of_reading, '読書歴' %><br>
-    <%= f.select :record_of_reading, [["週1,2回程度", "週1,2回程度"],["ほぼ毎日", "ほぼ毎日"] ],  :prompt =>"選択してください", :include_blank =>'未選択', :multiple => true, class:"form-group" %><br>
+          <%= f.select :record_of_reading, [["1、2ヶ月", "1、2ヶ月"],["3～6ヶ月", "3～6ヶ月"],["半年～1年", "半年～1年"],["1~3年", "1～3年"],["3年以上", "3年以上"] ],  :prompt =>"選択してください", :include_blank =>'未選択', :multiple => true, class:"form-group" %><br>
+          <%= f.label :like_bookgenres, '好きな本のジャンル' %><br>
+          <%= f.select :like_bookgenres, [["ビジネス", "ビジネス"],["文芸", "文芸"],["一般・教養", "一般・教養"],["趣味・実用", "趣味・実用"],["自己啓発", "自己啓発"],["語学", "語学"] ],  :prompt =>"選択してください", :include_blank =>'未選択', :multiple => true, class:"form-group" %><br>
   </div>
           <br>
          <%= f.submit '編集完了', class: 'btn btn-primary btn-block' %>
